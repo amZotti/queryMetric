@@ -4,8 +4,7 @@ CREATE DATABASE test;
 USE test;
 
 CREATE TABLE metrics (
-  id int(5) AUTO_INCREMENT,
-  PRIMARY KEY (id),
+  metric_id int(5),
   start_date int(5),
   time_range_length int(5),
   value int(5),
