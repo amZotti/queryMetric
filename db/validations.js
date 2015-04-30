@@ -16,11 +16,9 @@ validateRange = function(range) {
   return range === 'after' || range === 'before';
 };
 
-exports.validateInput = function(filter, range, date, aggregate, aggregateTarget) {
-  return validateFilter(filter) &&
-    validateFilter(aggregateTarget) &&
-    validateRange(range) &&
-    validateDate(date);
+exports.validateInput = function(req) {
+  return validateFilter(req.filter) &&
+    validateFilter(req.aggregateTarget) &&
+    validateRange(req.range) &&
+    validateDate(req.date);
 };
-
-

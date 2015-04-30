@@ -3,30 +3,36 @@ var helper = require('./helpers.js');
 var validations = require('./validations.js');
 
 //Syntax:
-//exports.processRequest(filter_date, range, date, aggregate, aggregate_target)
+//exports.processRequest({filter_date, range, date, aggregate, aggregate_target})
 
-//Example:
-//exports.processRequest('start_date', 'after', '2010', 'sum', 'value').then(function(result) {
-//  console.log(result);
-//});
+exports.processRequest = function(req) {
 
-exports.processRequest = function(filter, range, date, aggregate, aggregateTarget) {
-  var queryPromise, aggregateFunction;
-
-  if (!validations.validateInput(filter, range, date, aggregate, aggregateTarget)) { 
+  if (!validations.validateInput(req)) {
     return new Promise(function(resolve) {
       resolve('bad query');
     });
   }
 
-  aggregateFunction = helper[aggregate];
-  queryPromise = helper[range](filter, date);
+  var aggregateFunction = helper[req.aggregate];
 
-  return queryPromise.then(function(result) {
-    return aggregateFunction(result, aggregateTarget);
-  });
+  return helper[req.range](req.filter, req.date)
+    .then(function(result) {
+      return aggregateFunction(result, req.aggregateTarget);
+    });
 };
 
-exports.processRequest('start_date', 'before', '2028', 'count', 'value').then(function(result) {
+/*
+//Test Case
+
+var req = {
+  filter: 'start_date',
+  range: 'before',
+  date: '2028',
+  aggregate: 'count',
+  aggregateTarget: 'value'
+};
+
+exports.processRequest(req).then(function(result) {
   console.log(result);
 });
+*/
