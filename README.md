@@ -1,7 +1,7 @@
 <h1>Query Metric</h1>
 <p>Query Metric is a RESTful API which accepts a query string via GET request
 parameters and translates it into a MySQL query to enable users to perform
-advanced queries via HTTP. </p>
+advanced MySQL queries via HTTP. </p>
 
 <h2>System Architecture</h2>
 <p>When the server receives a GET request it extracts the parameters out of the
@@ -20,13 +20,12 @@ increased readability and modularity.</p>
   <li>filter</li>
     <ul>
       <li><code>filter</code> represents the <code>WHERE</code> condition</li>
-      <li><code>filter</code> is the attribute in any given <code>metric</code
-      object that is compared against</li>
+      <li><code>filter</code> is the attribute in any given <code>metric</code object that is compared against</li>
     </ul>
   <li>range</li>
     <ul>
-      <li>after</li>
-      <li>before</li>
+      <li><code>after</code></li>
+      <li><code>before</code></li>
     </ul>
   <li>date</li>
     <ul>
@@ -36,9 +35,9 @@ increased readability and modularity.</p>
     </ul>
   <li>aggregate</li>
     <ul>
-      <li>sum</li>
-      <li>count</li>
-      <li>avg</li>
+      <li><code>sum</code></li>
+      <li><code>count</code></li>
+      <li><code>avg</code></li>
     </ul>
   <li>aggregateTarget</li>
     <ul>
