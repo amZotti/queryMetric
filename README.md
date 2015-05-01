@@ -60,3 +60,10 @@ increased readability and modularity.</p>
     aggregateTarget: 'value'
   }
 </pre>
+
+<h2>Technology Stack</h2>
+<ul>
+  <li>Nodejs</li>
+  <li>Express</li>
+  <li>MySQL</li>
+</ul>
