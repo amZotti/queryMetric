@@ -16,7 +16,7 @@ increased readability and modularity.</p>
 
 <h2>Parameter Structure</h2>
 <p>Query Metric accepts 5 parameters: </p>
-<ol>
+<ul>
   <li>filter</li>
     <ul>
       <li><code>filter</code> represents the <code>WHERE</code> condition</li>
@@ -45,7 +45,7 @@ increased readability and modularity.</p>
       <li><code>aggregateTarget</code> is the attribute which should be returned</li>
       <li><code>aggregateTarget</code> is what the <code>aggregate</code> function is applied to</li>
     </ul>
-</ol>
+</ul>
 
 <h3>Example URL</h3>
 <code>http://localhost:3000/start_date/before/2028/count/value</code>
